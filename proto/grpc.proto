@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package project;
+
+service CRUD {
+    rpc CreateProduct (InventoryProduct) returns (ID) {}
+    rpc ReadProduct (ID) returns (InventoryProduct) {}
+    rpc UpdateProduct (InventoryProduct) returns (ID) {}
+    rpc DeleteProduct (ID) returns (ID) {}
+}
+
+message InventoryProduct {
+    string barcode = 1;
+    string store = 2;
+    string name = 3;
+    string category = 4;
+    string description = 5;
+    string image = 6;
+    bool restricted =7;
+    int32 inventory =8;
+    float msrp = 9 ;
+    float price = 10;
+}
+
+message ID {
+    string id = 1;
+}
